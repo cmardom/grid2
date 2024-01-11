@@ -1,1 +1,38 @@
-/*# sourceMappingURL=styles.css.map */
+/*colors*/
+/*media queries*/
+/*widths*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.container {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+body nav { /* ancho body y ul clase container = en footer*/
+  background-color: black;
+  color: white;
+}
+body nav ul {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+body nav ul li {
+  text-transform: uppercase;
+  text-align: center;
+  padding: 3px;
+}
+body nav ul li:hover {
+  background-color: #c9c84a;
+  color: black;
+}
+body main {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+body main h2 {
+  text-align: center;
+}/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,41 @@
+@import "_variables.scss";
+@import "_mixins.scss";
+
+*{
+    box-sizing: border-box;
+    //margin: 0;
+    padding: 0;
+}
+
+.container{
+    width: $max_main_width;
+    margin: 0 auto;
+
+}
+
+body{
+    nav{ /* ancho body y ul clase container = en footer*/
+        background-color: black;
+        color: white;
+        ul{
+            list-style-type: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax($min_menu_width, 1fr)); 
+
+            li{
+                @include hover_nav($green_color, black);
+                text-transform: uppercase;
+                text-align: center;
+                padding: 3px;
+            }
+        }
+    }
+
+    main{
+        display: grid;
+        grid-template-columns: 1fr;
+        h2{
+            text-align: center;
+        }
+    }
+}
