@@ -4,3 +4,9 @@
         color: $text_color;
     }
 }
+
+@mixin screen_desktop{
+    @media screen and (min-width: $screen_phone){
+        @content;
+    }
+}
