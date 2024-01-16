@@ -16,6 +16,16 @@
 
     
 header{
+    @include screen_desktop{
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    img{
+        /*ARREGLAR LOGO EN MOVIL*/
+        max-width: 100%;
+    }
 
     >nav{ /* ancho body y ul clase container = en footer*/
         background-color: black;
@@ -34,65 +44,27 @@ header{
             }
         }
     }
+
+   
 }
 
 
 
 main{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+       
+
     @include screen_desktop{
         display: grid;
         grid-template-columns: minmax(10px, max-content) auto minmax(100px, max-content);
-        grid-template-rows: repeat(4, auto);
-        gap: 10px;
+        //gap: 10px;
         justify-items: center;
 
     }
 
-    .recipeData{
-        @include screen_desktop{
-            grid-column: 1 / 2;
-            grid-row: 2 / 3;
-        }
-        
-        ul{
-            background-color: $green_color;
-            list-style-type: none;
-            color: white;
-            text-align: center;
-
-
-        }
-    }
-
-    .images{
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, fr)); 
-        justify-content: center;
-        gap: 10px;
-
-       @include screen_desktop{
-        display: inline;
-       }
-        
-        /*:nth-child(1){
-            @include screen_desktop{
-                grid-column: 3 / 4;
-                grid-row: 2 / 3;
-            }
-        }
-
-        :nth-child(2){
-            @include screen_desktop{
-                grid-column: 1 / 2;
-                grid-row: 3 / 4;
-            }
-        }*/
-        
-    }
-        
-
     h2{
-        text-align: center;
 
         @include screen_desktop{
             grid-row: 1 / 2;
@@ -101,27 +73,96 @@ main{
 
     }
 
-
-    .recipeText{
-        text-align: justify;
-        line-height: 1.3;
-
-        .quote{
-            font-style: italic;
-            font-size: larger;
-            text-align: center;
-        }
-
+    .recipeData{
+        background-color: $green_color;
+        width: 100%;
+        
         @include screen_desktop{
-            grid-column: 2 / 3;
-            grid-row: 2 / 4;            
+            grid-column: 1 / 2;
+            grid-row: 2 / 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        
+        ul{
+            list-style-type: none;
+
+            li{
+                color: white;
+                text-align: center;
+                line-height: 3;
+            }
+
         }
     }
+   
+    :nth-child(2){ /*imagen a la izquierda*/
+
+        @include screen_desktop{
+            grid-column: 3 / 4;
+            grid-row: 3 / 4;
+        }
+    }
+
+    :nth-child(4){ /*imagen a la derecha*/
+        @include screen_desktop{
+            grid-column: 1 / 2;
+            grid-row: 5 / 6;
+        }
+    }
+
+    h2{
+        text-align: center;
+        font-size: 25pt;
+    }
+
+    #p1{
+        @include screen_desktop{
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+        }
+        
+    }
+
+    #p2{
+        @include screen_desktop{
+            grid-column: 2 / 3;
+            grid-row: 3 / 4;
+        }
+    }
+
+       
+    #p3{
+        @include screen_desktop{
+            grid-column: 2 / 3;
+            grid-row: 5 / 6;
+        }
+    }
+    
+    .quote{
+        font-style: italic;
+        font-size: larger;
+        text-align: center;
+        padding: 2% 0;
+        @include screen_desktop{
+            grid-column: 2 / 3;
+            grid-row: 4 / 5;
+        }
+    }
+
+    p{
+        text-align: justify;
+        line-height: 1.2;
+    }
+
+
+
 }
 
 footer{
-    /*color hasta el final: clase container en padre*/
     background-color: $green_color;
+    margin-top: 2%;
 
     nav{
         grid-template-columns: repeat(auto-fit, minmax($min_menu_width, 1fr)); 

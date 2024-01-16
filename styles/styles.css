@@ -13,6 +13,16 @@
   margin: 0 auto;
 }
 
+@media screen and (min-width: 768px) {
+  header {
+    display: flex;
+    flex-direction: column;
+  }
+}
+header img {
+  /*ARREGLAR LOGO EN MOVIL*/
+  max-width: 100%;
+}
 header > nav { /* ancho body y ul clase container = en footer*/
   background-color: black;
   color: white;
@@ -32,53 +42,17 @@ header > nav ul li:hover {
   color: black;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 @media screen and (min-width: 768px) {
   main {
     display: grid;
     grid-template-columns: minmax(10px, max-content) auto minmax(100px, max-content);
-    grid-template-rows: repeat(4, auto);
-    gap: 10px;
     justify-items: center;
   }
-}
-@media screen and (min-width: 768px) {
-  main .recipeData {
-    grid-column: 1/2;
-    grid-row: 2/3;
-  }
-}
-main .recipeData ul {
-  background-color: #c9c84a;
-  list-style-type: none;
-  color: white;
-  text-align: center;
-}
-main .images {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, fr));
-  justify-content: center;
-  gap: 10px;
-  /*:nth-child(1){
-      @include screen_desktop{
-          grid-column: 3 / 4;
-          grid-row: 2 / 3;
-      }
-  }
-
-  :nth-child(2){
-      @include screen_desktop{
-          grid-column: 1 / 2;
-          grid-row: 3 / 4;
-      }
-  }*/
-}
-@media screen and (min-width: 768px) {
-  main .images {
-    display: inline;
-  }
-}
-main h2 {
-  text-align: center;
 }
 @media screen and (min-width: 768px) {
   main h2 {
@@ -86,25 +60,83 @@ main h2 {
     grid-column: 1/-1;
   }
 }
-main .recipeText {
-  text-align: justify;
-  line-height: 1.3;
+main .recipeData {
+  background-color: #c9c84a;
+  width: 100%;
 }
-main .recipeText .quote {
+@media screen and (min-width: 768px) {
+  main .recipeData {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+main .recipeData ul {
+  list-style-type: none;
+}
+main .recipeData ul li {
+  color: white;
+  text-align: center;
+  line-height: 3;
+}
+main :nth-child(2) { /*imagen a la izquierda*/ }
+@media screen and (min-width: 768px) {
+  main :nth-child(2) {
+    grid-column: 3/4;
+    grid-row: 3/4;
+  }
+}
+main :nth-child(4) { /*imagen a la derecha*/ }
+@media screen and (min-width: 768px) {
+  main :nth-child(4) {
+    grid-column: 1/2;
+    grid-row: 5/6;
+  }
+}
+main h2 {
+  text-align: center;
+  font-size: 25pt;
+}
+@media screen and (min-width: 768px) {
+  main #p1 {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+}
+@media screen and (min-width: 768px) {
+  main #p2 {
+    grid-column: 2/3;
+    grid-row: 3/4;
+  }
+}
+@media screen and (min-width: 768px) {
+  main #p3 {
+    grid-column: 2/3;
+    grid-row: 5/6;
+  }
+}
+main .quote {
   font-style: italic;
   font-size: larger;
   text-align: center;
+  padding: 2% 0;
 }
 @media screen and (min-width: 768px) {
-  main .recipeText {
+  main .quote {
     grid-column: 2/3;
-    grid-row: 2/4;
+    grid-row: 4/5;
   }
+}
+main p {
+  text-align: justify;
+  line-height: 1.2;
 }
 
 footer {
-  /*color hasta el final: clase container en padre*/
   background-color: #c9c84a;
+  margin-top: 2%;
 }
 footer nav {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
