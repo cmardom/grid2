@@ -16,17 +16,6 @@
 
     
 header{
-    @include screen_desktop{
-        display: flex;
-        flex-direction: column;
-        
-    }
-
-    img{
-        /*ARREGLAR LOGO EN MOVIL*/
-        max-width: 100%;
-    }
-
     >nav{ /* ancho body y ul clase container = en footer*/
         background-color: black;
         color: white;
@@ -45,7 +34,9 @@ header{
         }
     }
 
-   
+   #platillo{
+    max-width: 100%;
+   }
 }
 
 

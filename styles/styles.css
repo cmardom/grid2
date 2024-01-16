@@ -13,16 +13,6 @@
   margin: 0 auto;
 }
 
-@media screen and (min-width: 768px) {
-  header {
-    display: flex;
-    flex-direction: column;
-  }
-}
-header img {
-  /*ARREGLAR LOGO EN MOVIL*/
-  max-width: 100%;
-}
 header > nav { /* ancho body y ul clase container = en footer*/
   background-color: black;
   color: white;
@@ -40,6 +30,9 @@ header > nav ul li {
 header > nav ul li:hover {
   background-color: #c9c84a;
   color: black;
+}
+header #platillo {
+  max-width: 100%;
 }
 
 main {
