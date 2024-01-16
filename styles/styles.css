@@ -5,122 +5,131 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .container {
-  width: 1100px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-body {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas: "header" "main" "footer";
-  font-family: Arial, Helvetica, sans-serif;
-  gap: 10px;
-}
-body header {
-  grid-area: header;
-}
-body header > nav { /* ancho body y ul clase container = en footer*/
+header > nav { /* ancho body y ul clase container = en footer*/
   background-color: black;
   color: white;
 }
-body header > nav ul {
+header > nav ul {
   list-style-type: none;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
-body header > nav ul li {
+header > nav ul li {
   text-transform: uppercase;
   text-align: center;
   padding: 3px;
 }
-body header > nav ul li:hover {
+header > nav ul li:hover {
   background-color: #c9c84a;
   color: black;
 }
-body main {
-  grid-area: main;
+
+main {
   display: grid;
   grid-template-columns: minmax(10px, max-content) auto minmax(100px, max-content);
   grid-template-rows: 1fr;
-  max-width: 100%;
   gap: 10px;
+  /*EN MOVIL NO HACE FALTA GRID*/
 }
-body main img {
-  grid-column: span 3;
-  grid-row: 1/2;
-  max-width: 1100px;
+@media screen and (min-width: 768px) {
+  main {
+    grid-template-columns: minmax(10px, max-content) auto minmax(100px, max-content);
+    grid-template-rows: repeat(4, auto);
+    gap: 10px;
+    justify-items: center;
+  }
 }
-body main .recipeData {
+main .recipeData {
   grid-column: 1/-1;
   grid-row: 2/3;
 }
-body main .recipeData ul {
+@media screen and (min-width: 768px) {
+  main .recipeData {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+}
+main .recipeData ul {
   background-color: #c9c84a;
   list-style-type: none;
   color: white;
   text-align: center;
 }
-body main .recipeData ul li {
-  padding: 10px;
-}
-body main .images {
+main .images {
   grid-column: 1/-1;
   grid-row: 3/4;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
 }
-body main .images :nth-child(1) {
-  grid-column: 2/3;
-  grid-row: 1/2;
+@media screen and (min-width: 768px) {
+  main .images :nth-child(1) {
+    grid-column: 3/4;
+    grid-row: 2/3;
+  }
 }
-body main .images :nth-child(2) {
-  grid-column: 2/3;
-  grid-row: 2/3;
+main .images :nth-child(2) {
+  grid-column: 1/2;
+  grid-row: 3/4;
 }
-body main h2 {
+main h2 {
   text-align: center;
   grid-column: 1/4;
   grid-row: 4/5;
 }
-body main .recipeText {
+@media screen and (min-width: 768px) {
+  main h2 {
+    grid-row: 1/2;
+    grid-column: 1/-1;
+  }
+}
+main .recipeText {
   grid-column: 1/4;
   grid-row: 5/6;
   text-align: justify;
   line-height: 1.3;
 }
-body main .recipeText .quote {
+main .recipeText .quote {
   font-style: italic;
   font-size: larger;
   text-align: center;
 }
-body footer {
-  grid-area: footer;
+@media screen and (min-width: 768px) {
+  main .recipeText {
+    grid-column: 2/3;
+    grid-row: 2/4;
+  }
 }
-body footer nav {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  display: grid;
+
+footer {
+  /*color hasta el final: clase container en padre*/
   background-color: #c9c84a;
 }
-body footer nav .footerList {
+footer nav {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: grid;
+}
+footer nav .footerList {
   list-style-type: none;
   grid-column: span 1;
   text-align: center;
   padding-bottom: 1em;
 }
-body footer nav .footerList :nth-child(1) {
+footer nav .footerList :nth-child(1) {
   font-weight: bold;
   padding: 10% 0 5% 0;
   text-transform: capitalize;
 }
-body footer nav .footerList li {
+footer nav .footerList li {
   text-transform: uppercase;
   line-height: 1.5;
 }
-body footer p {
+footer p {
   background-color: black;
   color: white;
   text-align: center;
