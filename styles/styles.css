@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*colors*/
 /*media queries*/
 /*widths*/
@@ -6,6 +7,10 @@
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+  max-width: 100%;
 }
 
 .container {
@@ -25,67 +30,72 @@ header > nav ul {
 header > nav ul li {
   text-transform: uppercase;
   text-align: center;
-  padding: 3px;
+  padding: 5%;
 }
 header > nav ul li:hover {
   background-color: #c9c84a;
   color: black;
+}
+header > nav ul li a {
+  color: white;
+  text-decoration: none;
 }
 header #platillo {
   max-width: 100%;
 }
 
 main {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1;
   gap: 10px;
+  align-items: center;
+  justify-items: center;
 }
 @media screen and (min-width: 768px) {
   main {
     display: grid;
     grid-template-columns: minmax(10px, max-content) auto minmax(100px, max-content);
-    justify-items: center;
+    /*PRIMERA COLUMNA: no se agranda más que el tamaño de la imagen para no deformarla*/
+    grid-template-rows: repeat(4, auto);
   }
 }
 @media screen and (min-width: 768px) {
   main h2 {
     grid-row: 1/2;
-    grid-column: 1/-1;
+    grid-column: 1/4;
   }
 }
 main .recipeData {
   background-color: #c9c84a;
-  width: 100%;
 }
 @media screen and (min-width: 768px) {
   main .recipeData {
     grid-column: 1/2;
     grid-row: 2/3;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
   }
 }
 main .recipeData ul {
   list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 main .recipeData ul li {
   color: white;
   text-align: center;
   line-height: 3;
 }
-main :nth-child(2) { /*imagen a la izquierda*/ }
+main .img1 { /*imagen a la izquierda*/ }
 @media screen and (min-width: 768px) {
-  main :nth-child(2) {
+  main .img1 {
     grid-column: 3/4;
     grid-row: 3/4;
   }
 }
-main :nth-child(4) { /*imagen a la derecha*/ }
+main .img2 { /*imagen a la derecha*/ }
 @media screen and (min-width: 768px) {
-  main :nth-child(4) {
+  main .img2 {
     grid-column: 1/2;
-    grid-row: 5/6;
+    grid-row: 4/5;
   }
 }
 main h2 {
@@ -93,34 +103,16 @@ main h2 {
   font-size: 25pt;
 }
 @media screen and (min-width: 768px) {
-  main #p1 {
+  main .texto {
     grid-column: 2/3;
-    grid-row: 2/3;
+    grid-row: 2/5;
   }
 }
-@media screen and (min-width: 768px) {
-  main #p2 {
-    grid-column: 2/3;
-    grid-row: 3/4;
-  }
-}
-@media screen and (min-width: 768px) {
-  main #p3 {
-    grid-column: 2/3;
-    grid-row: 5/6;
-  }
-}
-main .quote {
+main .texto .quote {
   font-style: italic;
   font-size: larger;
   text-align: center;
   padding: 2% 0;
-}
-@media screen and (min-width: 768px) {
-  main .quote {
-    grid-column: 2/3;
-    grid-row: 4/5;
-  }
 }
 main p {
   text-align: justify;
