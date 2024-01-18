@@ -64,7 +64,7 @@ main{
 
     @include screen_desktop{
         display: grid;
-        grid-template-columns: minmax(10px, max-content) auto minmax(100px, max-content);
+        grid-template-columns: minmax(100px, max-content) auto minmax(100px, max-content);
             /*PRIMERA COLUMNA: no se agranda más que el tamaño de la imagen para no deformarla*/
         grid-template-rows: repeat(4, auto);
     }
