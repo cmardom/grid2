@@ -76,25 +76,25 @@ main{
 
     .recipeData{
         background-color: $green_color;
+        display: grid;
+        grid-template-columns: 1;
+        grid-template-rows: 3;
+        border: 2px solid red;
+        //width: 100%;        
         
         
         @include screen_desktop{
             grid-column: 1 / 2;
             grid-row: 2 / 3;
-            // display: flex;
-            // flex-direction: column;
-
-
-           
-           
-
-           
+          
         }
         
         ul{
             list-style-type: none;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax($min_menu_width, 1fr)); 
+            align-items: stretch;
+
            
             li{
                 color: white;

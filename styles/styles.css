@@ -67,6 +67,10 @@ main {
 }
 main .recipeData {
   background-color: #c9c84a;
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 3;
+  border: 2px solid red;
 }
 @media screen and (min-width: 768px) {
   main .recipeData {
@@ -78,6 +82,7 @@ main .recipeData ul {
   list-style-type: none;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  align-items: stretch;
 }
 main .recipeData ul li {
   color: white;
