@@ -30,7 +30,8 @@ header > nav ul {
 header > nav ul li {
   text-transform: uppercase;
   text-align: center;
-  padding: 5%;
+  /*Para que salga el puntero en el a, hay que heredar el grid del abuelo*/
+  display: grid;
 }
 header > nav ul li:hover {
   background-color: #c9c84a;
@@ -39,6 +40,7 @@ header > nav ul li:hover {
 header > nav ul li a {
   color: white;
   text-decoration: none;
+  padding: 5%;
 }
 header #platillo {
   max-width: 100%;
@@ -68,26 +70,27 @@ main {
 main .recipeData {
   background-color: #c9c84a;
   display: grid;
-  grid-template-columns: 1;
-  grid-template-rows: 3;
-  border: 2px solid red;
+  justify-self: normal;
 }
 @media screen and (min-width: 768px) {
   main .recipeData {
     grid-column: 1/2;
     grid-row: 2/3;
+    align-self: normal;
   }
 }
 main .recipeData ul {
+  display: grid;
   list-style-type: none;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  align-items: stretch;
 }
 main .recipeData ul li {
+  grid-column: 1/2;
+  grid-row: span 1;
   color: white;
   text-align: center;
-  line-height: 3;
+  padding: 2%;
 }
 main .img1 { /*imagen a la izquierda*/ }
 @media screen and (min-width: 768px) {
